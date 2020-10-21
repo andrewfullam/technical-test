@@ -2,6 +2,8 @@ import React, { ReactChild } from "react";
 import "./table.css";
 
 const Table = ({ columns, values }: ITableProps) => {
+  // This uses a passed in key, ITableValue and Columns to parse the table value
+  // as a correct type. Will also call the custom render function if the column has one defined.
   const render = (key: string, value: ITableValue, columns: ITableColumns) => {
     var column = columns[key];
     var cellValue = value[key];
@@ -23,6 +25,7 @@ const Table = ({ columns, values }: ITableProps) => {
     return "";
   };
 
+  // Simple rendering of the column headings and row date using the above render function
   return (
     <table>
       <thead>
@@ -45,6 +48,7 @@ const Table = ({ columns, values }: ITableProps) => {
   );
 };
 
+// Simple interfaces for the props
 interface ITableProps {
   columns: ITableColumns;
   values: ITableValue[];

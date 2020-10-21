@@ -6,6 +6,7 @@ const Pagination = ({
   updatePageSize,
   numberOfPages,
 }: IPaginationProps) => {
+  // Simple pagination UI functionality, Nothing particularly exciting here other than it's fairly dumb to improve testability
   const pageButtons = useMemo(() => {
     const buttons = [];
 

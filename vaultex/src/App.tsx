@@ -5,10 +5,16 @@ import Pagination from "./Components/Pagination/pagination";
 import Table, { ITableColumns, ITableValue } from "./Components/Table/table";
 
 const App = () => {
+  // React hooks to store these in state
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [currentPageSize, setCurrentPageSize] = useState(10);
+
+  //Created a hook here to handle the API request. This API call will be made every time the currentPageNumber
+  //and current page size variables change
   const apiValue = useApi(currentPageNumber, currentPageSize);
 
+  // Using the same pattern we used at previous job to define columns and column details.
+  // also provides a non required render function prop that can be used to customise the render to the table
   const tableColumns: ITableColumns = {
     id: {
       label: "Id",
@@ -56,6 +62,7 @@ const App = () => {
     },
   };
 
+  // Simple event handling for the updating of page number and page size
   const updatePageNumber = (value: number) => {
     setCurrentPageNumber(value);
   };
@@ -64,6 +71,7 @@ const App = () => {
     setCurrentPageSize(value);
   };
 
+  // Mapping of api response values to TableValues to be used by the table
   const tableValues = apiValue.data.map<ITableValue>((v) => ({
     id: v.id,
     firstName: v.firstName,
@@ -84,6 +92,7 @@ const App = () => {
     postcode: v.organisation.postcode,
   }));
 
+  // Simple render here with a separated table and pagination components
   return (
     <>
       <div className="App">
