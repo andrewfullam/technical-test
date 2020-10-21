@@ -27,6 +27,7 @@ namespace VaultexApi
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("VaultexDatabase")));
 
+            // Registration of DI for service and repository
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 

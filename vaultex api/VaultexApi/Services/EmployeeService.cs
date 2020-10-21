@@ -15,6 +15,7 @@ namespace VaultexApi.Services
 
         public async Task<APIResponseModel<EmployeeModel>> Get(int pageNumber, int pageSize)
         {
+            // Not much to do here as we are just looking to return data with page number and page size
             return await _employeeRepository.Get(pageNumber, pageSize);
         }
     }

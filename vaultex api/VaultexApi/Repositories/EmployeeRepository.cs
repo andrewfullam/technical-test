@@ -18,6 +18,7 @@ namespace VaultexApi.Repositories
 
         public async Task<APIResponseModel<EmployeeModel>> Get(int pageNumber, int pageSize)
         {
+            // Simple query to return all results mapped to the emplyee model while also using a limit and a selection based on page number and page size
             var results = await _applicationContext.Employee.Select(e => new EmployeeModel
             {
                 Id = e.Id,
@@ -40,6 +41,7 @@ namespace VaultexApi.Repositories
             .Take(pageSize)
             .ToListAsync();
 
+            // mapping to an APIResponseModel to allow me to pass back number of pages to tell me how many page number buttons to render
             var response = new APIResponseModel<EmployeeModel>
             {
                 data = results,

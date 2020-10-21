@@ -8,6 +8,7 @@
 
         public string LastName { get; set; }
 
+        //Employees have an organisation
         public OrganisationModel Organisation { get; set; }
     }
 }
