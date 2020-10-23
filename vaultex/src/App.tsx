@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useApi from "./api/useApi";
 import "./App.css";
+import Heading from "./Components/Heading";
 import Pagination from "./Components/Pagination/pagination";
 import Table, { ITableColumns, ITableValue } from "./Components/Table/table";
 
@@ -96,6 +97,7 @@ const App = () => {
   return (
     <>
       <div className="App">
+        <Heading value="string" />
         <Table columns={tableColumns} values={tableValues} />
         <Pagination
           numberOfPages={apiValue.numberOfPages}
